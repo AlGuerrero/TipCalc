@@ -7,4 +7,7 @@
     <string name="main.button.decrease">-</string>
     <string name="main.button.clear">Borrar Recientes</string>
     <string name="main.menu.action.about">Acerca de</string>
+
+    <string name="global.message.tip">Propina %,.1f</string>
+    <string name="tipdetail.message.bill">Total %,.1f</string>
 </resources>
