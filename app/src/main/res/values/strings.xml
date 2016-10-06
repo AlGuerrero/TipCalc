@@ -6,4 +6,5 @@
     <string name="main.button.increase">+</string>
     <string name="main.button.decrease">-</string>
     <string name="main.button.clear">Borrar Recientes</string>
+    <string name="main.menu.action.about">Acerca de</string>
 </resources>
