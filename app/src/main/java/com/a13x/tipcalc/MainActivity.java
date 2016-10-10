@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.btnSubmit)
     Button btnSubmit;
     @Bind(R.id.inputPercentege)
-    EditText inputPercentege;
+    EditText inputPercentage;
     @Bind(R.id.btnIncrease)
     Button btnIncrease;
     @Bind(R.id.btnDecrease)
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         //4.- Devolver el valor de tipPercentage
         int tipPercentage;
 
-            String strInputPercentage = inputPercentage.getText().toString().trim();
+        String strInputPercentage = inputPercentage.getText().toString().trim();
         if (!strInputPercentage.isEmpty()) {
             tipPercentage = Integer.parseInt(strInputPercentage);
         } else {
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return tipPercentage;
-        return DEFAULT_TIP_CHANGE;
+        //return DEFAULT_TIP_CHANGE;
     }
 
     public void handleTipChange(int change) {
