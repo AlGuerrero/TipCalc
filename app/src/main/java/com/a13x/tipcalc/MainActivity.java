@@ -81,10 +81,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleClickIncrease(){
         //cuando des click a + debe llamar a handleTipChange y sumar 1
+        hideKeyboard();
+        handleTipChange(TIP_STEP_CHANGE);
     }
 
     public void handleClickDecrease(){
         //Cuando des click a - debe llamar a handleTipChange y restar 1
+        hideKeyboard();
+        handleTipChange(-TIP_STEP_CHANGE);
     }
 
     //publ
