@@ -100,6 +100,16 @@ public class MainActivity extends AppCompatActivity {
         //3a.- Si no viene Vacia sobre escribir tipPercentage con el valor de strInputPercentage
         //3b.- inputPercentage.setText(String.valueOf(DEFAULT_TIP_PERCENTAGE));
         //4.- Devolver el valor de tipPercentage
+        int tipPercentage;
+        String strInputPercentage = inputPercentage.getText().toString().trim();
+        if (!strInputPercentage.isEmpty()) {
+            tipPercentage = Integer.parseInt(strInputPercentage);
+        } else {
+            tipPercentage = DEFAULT_TIP_CHANGE;
+            inputPercentage.setText(String.valueOf(tipPercentage));
+        }
+
+        return tipPercentage;
         return DEFAULT_TIP_CHANGE;
     }
 
@@ -107,6 +117,10 @@ public class MainActivity extends AppCompatActivity {
         //1.- Llammar a get tip Percentage(en una variable)
         //2.- Aplicar el incremento/decremento que viene en change
         //4.- s tip percentage mayor que cero entonces colocar el valor en el input
+        int tipPercentage = getTipPercentage();
+        tipPercentage += change;
+
+        inputPercentage.setText(String.valueOf(tipPercentage));
     }
 
     private void hideKeyboard() {
