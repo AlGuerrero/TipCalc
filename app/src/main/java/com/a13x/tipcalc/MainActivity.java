@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.a13x.tipcalc.fragments.TipHistoryListFragment;
+import com.a13x.tipcalc.fragments.TipHistoryListFragmentListener;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -36,14 +39,21 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.txtTip)
     TextView txtTip;
 
+    private TipHistoryListFragmentListener fragmentListener;
+
     private final static int TIP_STEP_CHANGE = 1;
-    private final static int DEFAULT_TIP_CHANGE = 10; //CUESTIONES DE MANTENIBILIDAD
+    private final static int DEFAULT_TIP_CHANGE = 10; //CUESTIONES DE MANTENIBILIDAD, DEFAULT_TIP_PERCENTAGE LO DEJE COMO EN CLASE "CHANGE"
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        TipHistoryListFragment fragment = (TipHistoryListFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentList);
+
+        fragment.setRetainInstance(true); //Fijar para no volver a pintar en pantalla ctrl f1, no pedir memoria una y otra vez
+        fragmentListener = (TipHistoryListFragmentListener) fragment;
     }
 
     @Override
@@ -74,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
             double tip =total * (tipPercentage/100d);
 
             String strTip = String.format(getString(R.string.global_message_tip, tip));
+
+            fragmentListener.action(strTip);
+
             txtTip.setVisibility(View.VISIBLE);
             txtTip.setText(strTip);
         }
@@ -101,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
         //3b.- inputPercentage.setText(String.valueOf(DEFAULT_TIP_PERCENTAGE));
         //4.- Devolver el valor de tipPercentage
         int tipPercentage;
-        String strInputPercentage = inputPercentage.getText().toString().trim();
+
+            String strInputPercentage = inputPercentage.getText().toString().trim();
         if (!strInputPercentage.isEmpty()) {
             tipPercentage = Integer.parseInt(strInputPercentage);
         } else {

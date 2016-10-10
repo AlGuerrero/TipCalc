@@ -14,4 +14,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/tipContent"
         layout="@layout/content_tip" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tipContent"
+        android:id="@+id/fragmentList"
+        android:name="com.a13x.tipcalc.fragments.TipHistoryListFragment"
+        tools:layout="@layout/fragment_tip_history_list" />
+
 </RelativeLayout>
