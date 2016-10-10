@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         String strInputTotal = inputBill.getText().toString().trim();
 
-        if(strInputTotal.isEmpty()) {  //verificar que este vacio
+        if(!strInputTotal.isEmpty()) {  //verificar que este vacio
             double total = Double.parseDouble(strInputTotal);
             int tipPercentage = getTipPercentage();
 
