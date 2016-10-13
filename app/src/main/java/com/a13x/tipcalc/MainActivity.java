@@ -128,9 +128,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handleTipChange(int change) {
-        //1.- Llammar a get tip Percentage(en una variable)
-        //2.- Aplicar el incremento/decremento que viene en change
-        //4.- s tip percentage mayor que cero entonces colocar el valor en el input
         int tipPercentage = getTipPercentage();
         tipPercentage += change;
 
