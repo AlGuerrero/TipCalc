@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import com.a13x.tipcalc.fragments.TipHistoryListFragment;
 import com.a13x.tipcalc.fragments.TipHistoryListFragmentListener;
+import com.a13x.tipcalc.models.TipRecord;
+
+import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -81,11 +84,14 @@ public class MainActivity extends AppCompatActivity {
             double total = Double.parseDouble(strInputTotal);
             int tipPercentage = getTipPercentage();
 
-            double tip =total * (tipPercentage/100d);
+            TipRecord record = new TipRecord();
+            record.setBill(total);
+            record.setTipPercentage(tipPercentage);
+            record.setTimestamp(new Date());
 
-            String strTip = String.format(getString(R.string.global_message_tip, tip));
+            String strTip = String.format(getString(R.string.global_message_tip), record.getTip());
+            fragmentListener.addToList(record);
 
-            fragmentListener.action(strTip);
 
             txtTip.setVisibility(View.VISIBLE);
             txtTip.setText(strTip);
