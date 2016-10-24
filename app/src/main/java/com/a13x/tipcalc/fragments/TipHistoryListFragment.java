@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  */
 public class TipHistoryListFragment extends Fragment implements TipHistoryListFragmentListener {
 
-    @Bind(R.id.reciclerView)
+    @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
 
     TipAdapter adapter;

@@ -97,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
             txtTip.setText(strTip);
         }
     }
-
+    @OnClick(R.id.btnIncrease)
     public void handleClickIncrease(){
         //cuando des click a + debe llamar a handleTipChange y sumar 1
         hideKeyboard();
         handleTipChange(TIP_STEP_CHANGE);
     }
-
+    @OnClick(R.id.btnDecrease)
     public void handleClickDecrease(){
         //Cuando des click a - debe llamar a handleTipChange y restar 1
         hideKeyboard();
@@ -148,6 +148,12 @@ public class MainActivity extends AppCompatActivity {
         } catch(NullPointerException npe) {
             Log.e(getLocalClassName(), Log.getStackTraceString(npe));
         }
+    }
+
+    @OnClick(R.id.btnClear)
+    public void handleClickClear(){
+        hideKeyboard();
+        fragmentListener.clearList();
     }
 
     private void about() {
